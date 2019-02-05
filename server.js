@@ -16,7 +16,7 @@ app.use(express.static("public"));
 var MONGODB_URI = process.env.MONGOLAB_WHITE_URI || "mongodb://localhost/scrape-quotes";
 
 // Connect to the Mongo DB
-mongoose.connect(MONGOLAB_URI);
+mongoose.connect(MONGODB_URI);
 
 // Routes
 app.get("/scrape", function (req, res) {
