@@ -1,5 +1,5 @@
 War is Hell
-=====================================
+============
 
 A hauntingly vivid depiction of quotes from history's greatest figures.
 
@@ -13,6 +13,4 @@ The image of Charlie: The Chihuahua's longing glare, accurately characterizes th
 - Mongoose
 - Node
 - Heroku
-
-
 
