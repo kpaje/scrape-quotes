@@ -1,7 +1,7 @@
 var express = require("express");
 var logger = require("morgan");
 var mongoose = require("mongoose");
-var PORT = 3000;
+const PORT = process.env.PORT || 3001;
 var app = express();
 
 // Configure body parsing for AJAX requests
@@ -24,7 +24,7 @@ mongoose.connect(
   }
 );
 
-// Start the server
-app.listen(PORT, function () {
-  console.log("Running on http://localhost:" + PORT);
-});
+// Start the API server
+app.listen(PORT, () =>
+  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`)
+);
