@@ -1,0 +1,16 @@
+body {
+    background-image: url('./img/doon.jpg')
+}
+
+#wrapper {
+    width: 960px;
+    margin-left: 50%;
+    margin-right: auto;
+    padding-top: 5%;
+}
+
+#articles {
+    font-size: 2em;
+    margin-top: 20%;
+    margin-right: 5%;
+}
