@@ -42,7 +42,7 @@ var PORT = process.env.PORT || 3000;
 var app = express();
 
 // Require our routes
-var routes = require("./routes");
+var routes = require("./controllers/routes")(app);
 
 // Parse request body as JSON
 app.use(express.urlencoded({ extended: true }));
@@ -51,8 +51,8 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect Handlebars to our Express app
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
+// app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+// app.set("view engine", "handlebars");
 
 // Have every request go through our route middleware
 app.use(routes);
