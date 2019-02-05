@@ -1,7 +1,7 @@
 var express = require("express");
 var mongoose = require("mongoose");
-var PORT = process.env.PORT || 3000;
 var app = express();
+var PORT = process.env.PORT || 3000;
 var logger = require("morgan");
 var axios = require("axios");
 var cheerio = require("cheerio");
@@ -12,15 +12,13 @@ app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
-// require("./controllers/routes")(app)
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scrape-quotes";
+var MONGODB_URI = process.env.MONGOLAB_WHITE_URI || "mongodb://localhost/scrape-quotes";
 
 // Connect to the Mongo DB
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGOLAB_URI);
 
 // Routes
-
 app.get("/scrape", function (req, res) {
   axios.get("https://patrickmn.com/life/call-of-duty-war-quotes/").then(function (response) {
       var $ = cheerio.load(response.data);
