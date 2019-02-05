@@ -3,7 +3,6 @@ var cheerio = require("cheerio");
 var db = require("../models");
 
 module.exports = function (app) {
-    // A GET route for scraping the echoJS website
     app.get("/scrape", function (req, res) {
         axios.get("https://patrickmn.com/life/call-of-duty-war-quotes/").then(function (response) {
             var $ = cheerio.load(response.data);

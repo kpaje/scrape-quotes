@@ -1,26 +1,23 @@
 var express = require("express");
-var logger = require("morgan");
 var mongoose = require("mongoose");
 var PORT = process.env.PORT || 3000;
 var app = express();
-var routes = require("./controllers/routes")(app);
+var logger = require("morgan");
+const db = require("./models");
 
+// Parse request body as JSON
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
-app.use(routes);
+require("./controllers/routes")(app)
 
-// // Connect to the Mongo DB
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/scrape-quotes",
-  {
-    useCreateIndex: true,
-    useNewUrlParser: true
-  }
-);
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scrape-quotes";
 
-// // Start the server
+// Connect to the Mongo DB
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+
+// Listen on the port
 app.listen(PORT, function () {
   console.log("Running on http://localhost:" + PORT);
 });
