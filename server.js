@@ -13,10 +13,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-var MONGODB_URI = process.env.MONGOLAB_WHITE_URI || "mongodb://localhost/scrape-quotes";
+var MONGODB_URI = process.env.MONGOLAB_WHITE || "mongodb://localhost/scrape-quotes";
 
 // Connect to the Mongo DB
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+mongoose.connect(MONGODB_URI);
 
 // Routes
 app.get("/scrape", function (req, res) {
