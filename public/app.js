@@ -1,3 +1,5 @@
+
+$(document.ready(function() {
 // Grab the articles as a json
 $.getJSON("/articles", function(data) {
   var i = Math.floor((Math.random() * 30) + 1)
@@ -22,3 +24,6 @@ $.getJSON("/articles", function(data) {
     }, 9000);
   }
 });
+
+
+}))
