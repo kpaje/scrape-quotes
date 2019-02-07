@@ -1,11 +1,11 @@
 var express = require("express");
-var mongoose = require("mongoose");
-var app = express();
-var PORT = process.env.PORT || 3000;
 var logger = require("morgan");
+var mongoose = require("mongoose");
 var axios = require("axios");
 var cheerio = require("cheerio");
-const db = require("./models");
+var db = require("./models");
+var PORT = process.env.PORT || 3000;
+var app = express();
 
 // Parse request body as JSON
 app.use(logger("dev"));
